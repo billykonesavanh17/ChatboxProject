@@ -46,7 +46,10 @@ public class Chatbot
 	
 	private void buildPoliticalTopicsList()
 	{
-		
+		this.politicalTopicList.add("");
+		this.politicalTopicList.add("");
+		this.politicalTopicList.add("");
+		this.politicalTopicList.add("");
 	}
 	
 	/**
@@ -100,7 +103,16 @@ public class Chatbot
 	 */
 	public boolean politicalTopicChecker(String currentInput)
 	{
-		return false;
+		boolean hasTopic = false;
+		
+		for(String currentTopic: politicalTopicList)
+		{
+			if(currentTopic.contains(currentTopic))
+			{
+				hasTopic = true;
+			}
+		}
+		return hasTopic;
 	}
 	
 	
