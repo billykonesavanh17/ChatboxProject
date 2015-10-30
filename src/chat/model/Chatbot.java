@@ -113,10 +113,12 @@ public class Chatbot
 	{
 		boolean hasMeme = false;
 		
-		for(String currentMeme: memeList)
+		for(String currentMeme: memesList)
 		{
-			if(currentMeme.equalsIgnore)
-			hasMeme = true;
+			if(currentMeme.equalsIgnoreCase(currentInput))
+			{
+				hasMeme = true;
+			}		
 		}
 		
 
