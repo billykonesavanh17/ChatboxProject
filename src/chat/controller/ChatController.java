@@ -30,22 +30,17 @@ public class ChatController
 	{
 		String conversation = myDisplay.grabAnswer("What would you like to talk about today?");
 		while(myBot.lengthChecker(conversation))
+		{
+			conversation = myDisplay.grabAnswer(myBot.processConversation(conversation));
+		}
 		
-		if(myBot.contentChecker(conversation))
-		{
-			myDisplay.showResponse("wow, I had no idea you were interested in " + myBot.getContent());
-		}
-		else if(myBot.memeChecker(conversation))
-		{
-			myDisplay.showResponse("Dank meme kiddo.");
-		}
 	
-		conversation = myDisplay.grabAnswer(conversation);
 	}
 	
 	private void shutDown()
 	{
-		
+		myDisplay.showResponse("Goodbye" + myBot.getUserName() + " it has been a pleasure to talk with you.");
+		System.exit(0);
 	}
 
 }

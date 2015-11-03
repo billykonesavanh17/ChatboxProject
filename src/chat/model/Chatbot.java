@@ -39,17 +39,17 @@ public class Chatbot
 		this.memesList.add("bad luck brian");
 		this.memesList.add("spoderman");
 		this.memesList.add("what if I told you");
-		this.memesList.add("unhelpful high schoo teacher");
+		this.memesList.add("unhelpful high school teacher");
 		this.memesList.add("me gusta");
 		this.memesList.add("troll face");
 	}
 	
 	private void buildPoliticalTopicsList()
 	{
-		this.politicalTopicList.add("");
-		this.politicalTopicList.add("");
-		this.politicalTopicList.add("");
-		this.politicalTopicList.add("");
+		this.politicalTopicList.add("abortion");
+		this.politicalTopicList.add("gun control");
+		this.politicalTopicList.add("global warming");
+		this.politicalTopicList.add("racism");
 	}
 	
 	/**
@@ -107,7 +107,7 @@ public class Chatbot
 		
 		for(String currentTopic: politicalTopicList)
 		{
-			if(currentTopic.contains(currentTopic))
+			if(currentTopic.equalsIgnoreCase(currentInput))
 			{
 				hasTopic = true;
 			}
@@ -135,6 +135,48 @@ public class Chatbot
 		
 
 		return hasMeme;
+	}
+	
+	public String processConversation(String currentInput)
+	{
+		String nextConversation = "Cool, what else would you like to talk about?";
+		int randomTopic = (int) (Math.random()*5); //Generates a random number between 0 and 4.
+		switch (randomTopic)
+		{
+		case 0:
+			if(memeChecker(currentInput))
+			{
+				nextConversation = "That is a very popular meme this year.  What else are you " + "wanting to talk about?";
+			}
+			break;
+		case 1:
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = "Politics are cool, but is there anything else you want to talk about?";
+			}
+			break;
+		case 2:
+			if(contentChecker(currentInput))
+			{
+				nextConversation = "Sweet, anything else on your mind buddy";
+			}
+			break;
+		case 3:
+			if(currentInput.length() > 20)
+			{
+				nextConversation = "Interesting, anything else?";
+			}
+			break;
+		case 4:
+			nextConversation = "Nice, but how do you really feel?";
+			break;
+		default:
+			nextConversation = "The universe has ended sad panda";
+			break;
+		}
+			
+					
+		return nextConversation;
 	}
 	
 	/**
