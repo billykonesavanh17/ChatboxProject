@@ -45,5 +45,19 @@ public class ChatController
 		myDisplay.showResponse("Goodbye" + myBot.getUserName() + " it has been a pleasure to talk with you.");
 		System.exit(0);
 	}
+	public Chatbot getChatBot()
+	{
+		return myBot;
+	}
+	
+	public ChatView getChatView()
+	{
+		return myDisplay;
+	}
+	
+	public ChatFrame getBaseFrame()
+	{
+		return baseFrame;
+	}
 
 }
