@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import chat.controller.ChatController;
-import chat.view.*;;
+import chat.view.*;
 
 
 public class ChatControllerTest

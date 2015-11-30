@@ -35,6 +35,7 @@ public class ChatController
 		while(myBot.lengthChecker(conversation))
 		{
 			conversation = myDisplay.grabAnswer(myBot.processConversation(conversation));
+			conversation = myBot.processConversation(conversation);
 		}
 		
 	
@@ -45,7 +46,7 @@ public class ChatController
 		myDisplay.showResponse("Goodbye" + myBot.getUserName() + " it has been a pleasure to talk with you.");
 		System.exit(0);
 	}
-	public Chatbot getChatBot()
+	public Chatbot getChatbot()
 	{
 		return myBot;
 	}
