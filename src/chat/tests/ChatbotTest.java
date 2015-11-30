@@ -71,13 +71,14 @@ public class ChatbotTest
 		assertTrue("Mash not detected", sampleBot.keyboardMashChecker("dfg"));
 		assertTrue("Mash not detected", sampleBot.keyboardMashChecker("cvb"));
 		assertTrue("Mash not detected", sampleBot.keyboardMashChecker(",./"));
+		assertTrue("Mash not detected", sampleBot.keyboardMashChecker("asdjkljkl;adsjkl;afs"));
 	}
 
 	@Test
 	public void testPoliticalTopicChecker()
 	{
-		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Democrat"));
-		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Republican"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("democrat"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("republican"));
 		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("11/4/16"));
 	}
 

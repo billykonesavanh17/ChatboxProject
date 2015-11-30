@@ -12,6 +12,7 @@ public class Chatbot
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
+	private ArrayList<String> keyboardMashList;
 	private String userName;
 	private String content;
 	
@@ -24,10 +25,13 @@ public class Chatbot
 		this.userName = userName;
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
+		this.keyboardMashList = new ArrayList<String>();
 		this.content = "food";
 		
 		buildMemesList();
 		buildPoliticalTopicsList();
+		buildKeyboardMashList();
+		
 	}
 	
 	private void buildMemesList()
@@ -63,8 +67,17 @@ public class Chatbot
 		this.politicalTopicList.add("Fiorina");
 		this.politicalTopicList.add("Sanders");
 		this.politicalTopicList.add("vote");
-		this.politicalTopicList.add("11/8/2016");
+		this.politicalTopicList.add("11/4/16");
 				
+	}
+	
+	private void buildKeyboardMashList()
+	{
+		this.keyboardMashList.add("sdf");
+		this.keyboardMashList.add("dfg");
+		this.keyboardMashList.add("cvb");
+		this.keyboardMashList.add(",./");
+		this.keyboardMashList.add("asdjkljkl;adsjkl;afs");
 	}
 	
 	/**
@@ -152,7 +165,22 @@ public class Chatbot
 		return hasMeme;
 	}
 	
-	public String processConversation(String currentInput)
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean hasMash = false;
+		
+		for(String currentMash: keyboardMashList)
+		{
+			if(currentMash.equalsIgnoreCase(currentInput))
+			{
+				hasMash = true;
+			}
+		}
+		
+		return hasMash;
+	}
+	
+		public String processConversation(String currentInput)
 	{
 		String nextConversation = "Cool, what else would you like to talk about?";
 		int randomTopic = (int) (Math.random()*5); //Generates a random number between 0 and 4.
