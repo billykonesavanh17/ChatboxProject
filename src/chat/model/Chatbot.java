@@ -55,8 +55,8 @@ public class Chatbot
 		this.politicalTopicList.add("global warming");
 		this.politicalTopicList.add("racism");
 		this.politicalTopicList.add("election");
-		this.politicalTopicList.add("democrat");
-		this.politicalTopicList.add("republican");
+		this.politicalTopicList.add("Democrat");
+		this.politicalTopicList.add("Republican");
 		this.politicalTopicList.add("liberal");
 		this.politicalTopicList.add("conservative");
 		this.politicalTopicList.add("Trump");
@@ -286,6 +286,6 @@ public class Chatbot
 	 */
 	public void setContent(String content)
 	{
-		
+		this.content = content; 
 	}
 }

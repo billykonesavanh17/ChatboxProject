@@ -77,9 +77,25 @@ public class ChatbotTest
 	@Test
 	public void testPoliticalTopicChecker()
 	{
-		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("democrat"));
-		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("republican"));
+		assertFalse("Topic check", sampleBot.getPoliticalTopicList().contains("democrat"));
+		assertFalse("Topic check", sampleBot.getPoliticalTopicList().contains("republican"));
 		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("11/4/16"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("abortion"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("gun control"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("global warming"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("racism"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("election"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("liberal"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("conservative"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Trump"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Clinton"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Biden"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Carson"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Rubio"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Fiorina"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Sanders"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("vote"));
+	
 	}
 
 	@Test
@@ -111,6 +127,21 @@ public class ChatbotTest
 		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Democrat"));
 		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Republican"));
 		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("11/4/16"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("abortion"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("gun control"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("global warming"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("racism"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("election"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("liberal"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("conservative"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Trump"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Clinton"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Biden"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Carson"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Rubio"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Fiorina"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("Sanders"));
+		assertTrue("Topic check", sampleBot.getPoliticalTopicList().contains("vote"));
 	}
 
 	@Test
