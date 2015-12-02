@@ -31,21 +31,33 @@ public class ChatController
 	
 	private void chat()
 	{
-		String conversation = myDisplay.grabAnswer("What would you like to talk about today?");
-		while(myBot.lengthChecker(conversation))
-		{
-			conversation = myDisplay.grabAnswer(myBot.processConversation(conversation));
-			conversation = myBot.processConversation(conversation);
-		}
+	//	String conversation = myDisplay.grabAnswer("What would you like to talk about today?");
+	//	while(myBot.lengthChecker(conversation))
+	//	{
+		//	conversation = myDisplay.grabAnswer(myBot.processConversation(conversation));
+	//		conversation = myBot.processConversation(conversation);
+	//	}
 		
 	
 	}
 	
+	public String userToChatbot(String conversation)
+	{
+		String response = "";
+		if(myBot.quitChecker(conversation))
+		{
+			shutDown();
+		}
+		response = myBot.processConversation(conversation);
+		return response;
+	}
+	
 	private void shutDown()
 	{
-		myDisplay.showResponse("Goodbye" + myBot.getUserName() + " it has been a pleasure to talk with you.");
+		myDisplay.showResponse("Goodbye " + myBot.getUserName() + " it has been a pleasure to talk with you.");
 		System.exit(0);
 	}
+	
 	public Chatbot getChatbot()
 	{
 		return myBot;
