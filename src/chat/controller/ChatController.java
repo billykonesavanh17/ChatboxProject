@@ -7,7 +7,7 @@ import chat.view.ChatFrame;
 /**
  * Application controller for the Chatbot project.
  * @author Billy Konesavanh
- * @version 1.11 10/21/15 fixed error :)
+ * @version 1.2 12/3/15 Added methods and documentation.
  */
 public class ChatController
 {
@@ -15,6 +15,7 @@ public class ChatController
 	private ChatView myDisplay;
 	private ChatFrame baseFrame;
 	
+	//Creates an instances
 	public ChatController()
 	{
 		myDisplay = new ChatView();
@@ -23,12 +24,14 @@ public class ChatController
 		baseFrame = new ChatFrame(this);
 	}
 	
+	//Displays GUI and says hello and the start.
 	public void start()
 	{
 		myDisplay.showResponse("Hello " + myBot.getUserName());
 		chat();
 	}
 	
+	//Uses chatbot and allows chat.
 	private void chat()
 	{
 	//	String conversation = myDisplay.grabAnswer("What would you like to talk about today?");
@@ -41,6 +44,7 @@ public class ChatController
 	
 	}
 	
+	//Shuts down program if passes quitChecker and goes to chatbot to chat.
 	public String userToChatbot(String conversation)
 	{
 		String response = "";
@@ -52,12 +56,14 @@ public class ChatController
 		return response;
 	}
 	
+	//Method to shut program down and also displays a goodbye before shutdown.
 	private void shutDown()
 	{
 		myDisplay.showResponse("Goodbye " + myBot.getUserName() + " it has been a pleasure to talk with you.");
 		System.exit(0);
 	}
 	
+	//Getters
 	public Chatbot getChatbot()
 	{
 		return myBot;

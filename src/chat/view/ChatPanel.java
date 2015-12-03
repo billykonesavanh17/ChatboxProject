@@ -18,6 +18,7 @@ public class ChatPanel extends JPanel
 	private SpringLayout baseLayout;
 	private JLabel promptLabel;
 	
+	//Declare 
 	public ChatPanel(ChatController baseController)
 	{
 		this.baseController = baseController;
@@ -33,6 +34,8 @@ public class ChatPanel extends JPanel
 		setupListeners();
 	}
 	
+	
+	//Setup panel and added a tool tip 
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
@@ -45,6 +48,7 @@ public class ChatPanel extends JPanel
 		firstTextArea.setEnabled(false);
 	}
 	
+	//Where the Layout is.
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 77, SpringLayout.WEST, this);
@@ -62,6 +66,7 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 17, SpringLayout.SOUTH, firstTextArea);
 	}
 	
+	//Method for my change color button, just changes color of background randomly.
 	private void changeColor()
 	{
 		int red = (int) (Math.random() * 256);
@@ -70,6 +75,7 @@ public class ChatPanel extends JPanel
 		setBackground(new Color(red, green, blue));
 	}
 	
+	//Just setups all of my buttons
 	private void setupListeners()
 	{
 		firstButton.addActionListener(new ActionListener()
@@ -94,6 +100,7 @@ public class ChatPanel extends JPanel
 		
 	}
 	
+	//Just returns JTextField
 	public JTextField getTextField()
 	{
 		return firstTextField;

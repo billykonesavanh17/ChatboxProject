@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author Billy Konesavanh
- * @version 1.2 10/23/15 Completed the lengthChecker method.  Fixed the Constructor and getter for userName
+ * @version 1.3 12/1/15 Added checkers and keyboardMashList 
  */
 public class Chatbot
 {
@@ -34,6 +34,7 @@ public class Chatbot
 		
 	}
 	
+	//Built lists for checkers
 	private void buildMemesList()
 	{
 		this.memesList.add("doge");
