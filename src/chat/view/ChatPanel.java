@@ -118,7 +118,7 @@ public class ChatPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{			
 				String userText = firstTextField.getText(); 	//Grab user typed answer
-				chatArea.append("\nUnser:  " + userText); 	//display typed answer
+				chatArea.append("\nUser:  " + userText); 	//display typed answer
 				firstTextField.setText("");
 				String response = baseController.userToChatbot(userText); //send the text to chatbot 	//chatbot will process
 				chatArea.append("\nChatbot:  " + response); 			//display the response
