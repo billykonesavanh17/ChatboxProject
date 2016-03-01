@@ -49,6 +49,7 @@ public class ChatPanel extends JPanel
 		textPane = new JScrollPane(chatArea);
 		chatArea.setLineWrap(true);
 		chatArea.setWrapStyleWord(true);
+		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 		textPane_1 = new JScrollPane(chatArea);
 		textPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
