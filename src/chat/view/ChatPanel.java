@@ -126,6 +126,15 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				baseController.sendTweet("no text to send");
+			}
+			
+		});
+		
 		colorButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
