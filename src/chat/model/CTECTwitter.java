@@ -5,7 +5,7 @@ import twitter4j.*;
 
 /**
  * @author Billy Konesavanh
- * @version 1.0
+ * @version 0.2 Reference to Twitter4j
  * Interact with Twitter
  */
 
