@@ -6,7 +6,7 @@ import chat.controller.ChatController;
 
 /**
  * @author Billy Konesavanh
- * @version 0.2 Made a method that can send a tweet
+ * @version 0.3 Made a method that can send a tweet, made try/catch
  * Interact with Twitter
  */
 
