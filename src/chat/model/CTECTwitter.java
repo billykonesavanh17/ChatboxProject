@@ -17,6 +17,9 @@ public class CTECTwitter
 	private Twitter chatbotTwitter;
 	private ChatController baseController;
 	
+	/*
+	 * Creates the Twitter model object with a reference to the controller to enable MVC message passing.
+	 */
 	public CTECTwitter(ChatController baseController)
 	{
 		statusList = new ArrayList<Status>();
@@ -39,6 +42,33 @@ public class CTECTwitter
 		{
 			baseController.handleErrors(error.getErrorMessage());
 		}
+	}
+	
+	/*
+	 * Loads 2000 tweets from the supplied Twitter user to a List<Status> and a list<String>.
+	 * @param twitterHandle The Twitter user being searched.
+	 * @throws TwitterException any associated TwitterExceptions.
+	 */
+	public void loadTweets(String twitterHandle) throws TwitterException
+	{
+		Paging statusPage = new Paging(1,200);
+		int page = 1;
+		while (page <= 10)
+		{
+			statusPage.setPage(page);
+			statuses.addAll(chatbotTwitter.getUserTimeline(twitterHandle, statusPage));
+			page++;
+		}
+		for (Status currentStatus : statuses)
+		{
+			String[] tweetText = currentStatus.getText().split("");
+			for(String word : tweetText)
+			{
+				tweetTexts.ad(removePunctuation(word).toLowerCase());
+			}
+		}
+		removeCommonEnglishWords(tweetTexts);
+		removeEmptyText();
 	}
 }
 
