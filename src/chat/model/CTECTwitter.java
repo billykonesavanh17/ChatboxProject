@@ -6,14 +6,14 @@ import chat.controller.ChatController;
 
 /**
  * @author Billy Konesavanh
- * @version 0.4 March 7, 2016 - Made a method that can send a tweet, made try/catch
+ * @version 0.5 March 11, 2016 - Added methods
  * Interact with Twitter
  */
 
 public class CTECTwitter
 {
-	private ArrayList<Status> statusList;
-	private ArrayList<String> wordList;
+	private ArrayList<Status> statuses;
+	private ArrayList<String> tweetTexts;
 	private Twitter chatbotTwitter;
 	private ChatController baseController;
 	
@@ -22,8 +22,8 @@ public class CTECTwitter
 	 */
 	public CTECTwitter(ChatController baseController)
 	{
-		statusList = new ArrayList<Status>();
-		wordList = new ArrayList<String>();
+		statuses = new ArrayList<Status>();
+		tweetTexts = new ArrayList<String>();
 		chatbotTwitter = TwitterFactory.getSingleton();
 		this.baseController = baseController;
 	}
@@ -42,6 +42,11 @@ public class CTECTwitter
 		{
 			baseController.handleErrors(error.getErrorMessage());
 		}
+	}
+	
+	public void topResults(ArrayList<String> wordList)
+	{
+		
 	}
 	
 	/*
@@ -64,11 +69,26 @@ public class CTECTwitter
 			String[] tweetText = currentStatus.getText().split("");
 			for(String word : tweetText)
 			{
-				tweetTexts.ad(removePunctuation(word).toLowerCase());
+				tweetTexts.add(removePunctuation(word).toLowerCase());
 			}
 		}
 		removeCommonEnglishWords(tweetTexts);
 		removeEmptyText();
+	}
+	
+	private String removePunctuation(String currentString)
+	{	
+		return null;
+	}
+	
+	private ArrayList removeCommonEnglishWords(ArrayList<String> tweetTexts)
+	{
+		return null;
+	}
+	
+	private void removeEmptyText()
+	{
+		
 	}
 }
 

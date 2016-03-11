@@ -148,6 +148,15 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
+		analyzeTwitterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String user = firstTextField.getText();
+				String results = baseController.analyze(user);
+				chatArea.setText(results);
+			}
+		});
 	}
 	
 	//Just returns JTextField
