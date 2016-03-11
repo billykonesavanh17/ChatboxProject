@@ -22,6 +22,7 @@ public class ChatPanel extends JPanel
 	private JButton tweetButton;
 	private JButton saveButton;
 	private JButton loadButton;
+	private JButton analyzeTwitterButton;
 	
 	//Declare 
 	public ChatPanel(ChatController baseController)
@@ -32,6 +33,7 @@ public class ChatPanel extends JPanel
 		tweetButton = new JButton("Tweet");
 		saveButton = new JButton("Save");
 		loadButton = new JButton("Load");
+		analyzeTwitterButton = new JButton("Get Tweet");
 		colorButton = new JButton("Change Colors");
 		firstTextField = new JTextField(25);
 		promptLabel = new JLabel("Chat with Chatbot");
@@ -63,6 +65,7 @@ public class ChatPanel extends JPanel
 		this.add(firstButton);
 		this.add(textPane_1);
 		this.add(tweetButton);
+		this.add(analyzeTwitterButton);
 		this.add(saveButton);
 		this.add(loadButton);
 		this.add(colorButton);
@@ -100,6 +103,8 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, saveButton, -78, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, tweetButton, 0, SpringLayout.NORTH, firstButton);
 		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 0, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, analyzeTwitterButton, 0, SpringLayout.EAST, promptLabel);
+		baseLayout.putConstraint(SpringLayout.SOUTH, analyzeTwitterButton, 0, SpringLayout.SOUTH, this);
 	}
 	
 	//Method for my change color button, just changes color of background randomly.
