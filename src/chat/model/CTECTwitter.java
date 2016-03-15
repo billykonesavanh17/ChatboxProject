@@ -80,7 +80,7 @@ public class CTECTwitter
 		removeEmptyText();
 	}
 	
-	public String topResults(List<String> tweetTexts)
+	public String topResults()
 	{
 		String tweetResults = "";
 		int topWordLocation = 0;
