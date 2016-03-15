@@ -123,6 +123,21 @@ public class CTECTwitter
 		return tweetTexts;
 	}
 	
+	/*
+	 * 
+	 */
+	private void removeTwitterUsernamesFromList(List<String> tweetTexts)
+	{
+		for(int wordCount = 0; wordCount < tweetTexts.size(); wordCount++)
+		{
+			if(tweetTexts.get(wordCount).length() >= 1 && tweetTexts.get(wordCount).charAt(0) == '@')
+			{
+				tweetTexts.remove(wordCount);
+				wordCount--;
+			}
+		}
+	}
+	
 	private void removeEmptyText()
 	{
 		for(int spot = 0; spot < tweetTexts.size(); spot ++)
