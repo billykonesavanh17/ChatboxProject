@@ -1,6 +1,7 @@
 package chat.model;
 
 import java.util.ArrayList;
+import java.util.List;
 import twitter4j.*;
 import chat.controller.ChatController;
 
@@ -97,7 +98,7 @@ public class CTECTwitter
 	 * Removes all words found in commonWors.txt from the parameter tweetTexts.
 	 */
 	@SuppressWarnings("unchecked")
-	private ArrayList removeCommonEnglishWords(ArrayList<String> tweetTexts)
+	private List removeCommonEnglishWords(List<String> tweetTexts)
 	{
 		String[] boringWords = importWordsToArray();
 		
@@ -113,6 +114,10 @@ public class CTECTwitter
 				}
 			}
 		}
+		//Comment this if you want to keep Twitter usernames in your word list.
+		removeTwitterUsernamesFromList(tweetTexts);
+		
+		return tweetTexts;
 	}
 	
 	private void removeEmptyText()
