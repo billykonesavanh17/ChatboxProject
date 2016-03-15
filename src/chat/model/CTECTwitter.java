@@ -93,9 +93,26 @@ public class CTECTwitter
 		return scrubbedString;
 	}
 	
+	/*
+	 * Removes all words found in commonWors.txt from the parameter tweetTexts.
+	 */
+	@SuppressWarnings("unchecked")
 	private ArrayList removeCommonEnglishWords(ArrayList<String> tweetTexts)
 	{
-		return null;
+		String[] boringWords = importWordsToArray();
+		
+		for(int count = 0; count < tweetTexts.size(); count++)
+		{
+			for(int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
+			{
+				if(tweetTexts.get(count).equalsIgnoreCase(boringWords[removeSpot]))
+				{
+					tweetTexts.remove(count);
+					count--;
+					removeSpot = boringWords.length;	//Exit the inner loop.
+				}
+			}
+		}
 	}
 	
 	private void removeEmptyText()
@@ -105,7 +122,7 @@ public class CTECTwitter
 			if(tweetTexts.get(spot).equals(""))
 			{
 				tweetTexts.remove(spot);
-				spot --;
+				spot --;	//When you remove you have to have -- or you will skip over
 			}
 		}
 	}
