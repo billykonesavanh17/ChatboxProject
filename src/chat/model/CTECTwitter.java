@@ -78,7 +78,18 @@ public class CTECTwitter
 	
 	private String removePunctuation(String currentString)
 	{	
-		return null;
+		String punctuation = ".,;?:;\"(){}^[]<>-";	//think about adding hashtag and @.
+		
+		String scrubbedString = "";
+		for(int i = 0; i < currentString.length(); i++)
+		{
+			if(punctuation.indexOf(currentString.charAt(i)) == -1)
+			{
+				scrubbedString +=currentString.charAt(i);
+			}
+		}
+		
+		return scrubbedString;
 	}
 	
 	private ArrayList removeCommonEnglishWords(ArrayList<String> tweetTexts)
