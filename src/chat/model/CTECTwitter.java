@@ -80,6 +80,33 @@ public class CTECTwitter
 		removeEmptyText();
 	}
 	
+	public String topResults(List<String> tweetTexts)
+	{
+		String tweetResults = "";
+		int topWordLocation = 0;
+		int topCount = 0;
+		
+		for(int index = 0; index < tweetTexts.size(); index++)
+		{
+			int wordUseCount = 1;
+			for(int spot = index +1; spot < tweetTexts.size(); spot++)
+			{
+				if(tweetTexts.get(index).equals(tweetTexts.get(spot)))
+				{
+					wordUseCount++;
+				}
+				if(wordUseCount > topCount)
+				{
+					topCount = wordUseCount;
+					topWordLocation = index;
+				}
+			}
+		}
+		
+		tweetResults = "The top word in the tweets was " + tweetTexts.get(topWordLocation) + " and t was used " + topCount + " times!";
+		return tweetResults;
+	}
+	
 	private String removePunctuation(String currentString)
 	{	
 		String punctuation = ".,;?:;\"(){}^[]<>-";	//think about adding hashtag and @.
@@ -124,7 +151,7 @@ public class CTECTwitter
 	}
 	
 	/*
-	 * 
+	 * Removes Twitter usernames from a list of String objects.
 	 */
 	private void removeTwitterUsernamesFromList(List<String> tweetTexts)
 	{
