@@ -81,11 +81,12 @@ public class CTECTwitter
 		String punctuation = ".,;?:;\"(){}^[]<>-";	//think about adding hashtag and @.
 		
 		String scrubbedString = "";
+		//Checks each letter of a word and if it is in the punctuation list then it is not added.
 		for(int i = 0; i < currentString.length(); i++)
 		{
-			if(punctuation.indexOf(currentString.charAt(i)) == -1)
+			if(punctuation.indexOf(currentString.charAt(i)) == -1)	
 			{
-				scrubbedString +=currentString.charAt(i);
+				scrubbedString +=currentString.charAt(i);	//adds the letter at index
 			}
 		}
 		
