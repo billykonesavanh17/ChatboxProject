@@ -44,7 +44,7 @@ public class CTECTwitter
 	{
 		try
 		{
-			chatbotTwitter.updateStatus("I just tweeted from my Java Chatbot program! #APCSRocks @CTECNow Thanks @cscheerleader & @codyhenrichsen! BillyBot");
+			chatbotTwitter.updateStatus("Is this real life");
 		}
 		catch (TwitterException error)
 		{
@@ -110,7 +110,7 @@ public class CTECTwitter
 			}
 		}
 		
-		tweetResults = "The top word in the tweets was " + tweetTexts.get(topWordLocation) + " and t was used " + topCount + " times!";
+		tweetResults = "The top word in the tweets was " + tweetTexts.get(topWordLocation) + " and it was used " + topCount + " times!";
 		return tweetResults;
 	}
 	
@@ -182,6 +182,31 @@ public class CTECTwitter
 				spot --;	//When you remove you have to have -- or you will skip over
 			}
 		}
+	}
+	
+	public String sampleInvestigation()
+	{
+		String results = "";
+		
+		Query query = new Query("");
+		query.setCount(100);
+		query.setGeoCode(new GeoLocation(40.5, -111.8), 5, Query.MILES);
+		query.setSince("2016-1-1");
+		try
+		{
+			QueryResult result = chatbotTwitter.search(query);
+			results.concat("Count : " + result.getTweets().size());
+			for(Status tweet : result.getTweets())
+			{
+				results.concat("@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n");
+			}
+		}
+		catch(TwitterException error)
+		{
+			error.printStackTrace();
+		}
+		
+		return results;
 	}
 	
 	/*
