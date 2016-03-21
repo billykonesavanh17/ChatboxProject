@@ -22,8 +22,6 @@ public class CTECTwitter
 	private ArrayList<Status> statuses;
 	private ArrayList<String> tweetTexts;
 	private Twitter chatbotTwitter;
-	private ChatView myDisplay;
-	private Chatbot myBot;
 	private ChatController baseController;
 	
 	/*
@@ -34,17 +32,9 @@ public class CTECTwitter
 		statuses = new ArrayList<Status>();
 		tweetTexts = new ArrayList<String>();
 		chatbotTwitter = TwitterFactory.getSingleton();
-		myDisplay = new ChatView();
-		String userName = myDisplay.grabAnswer("What is your name?");
-		myBot = new Chatbot(userName);
 		this.baseController = baseController;
 	}
 	
-	private void shutDown()
-	{
-		myDisplay.showResponse("Goodbye, " + myBot.getUserName() + " it has been my pleasure to talk with you.");
-		System.exit(0);
-	}
 	
 	/**
 	 * Send the supplied message as a tweet.
@@ -62,27 +52,7 @@ public class CTECTwitter
 		}
 	}
 	
-	public String analyze(String userName)
-	{
-		String userAnalysis = "The Twitter user " + userName + " has many tweets.  ";
-		try
-		{
-			chatbotTwitter.loadTweets(userName);
-		}
-		catch(TwitterException error)
-		{
-			handleErrors(error.getErrorMessage());
-		}
-		userAnalysis =+ chatbotTwitter.topResults();
-		
-		return userAnalysis;
-	}
-	
-	public void handleErrors(String errorMessage)
-	{
-		myDisplay.showResponse(errorMessage);
-	}
-	
+
 	public void topResults(ArrayList<String> wordList)
 	{
 		

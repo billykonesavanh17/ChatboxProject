@@ -157,6 +157,22 @@ public class ChatPanel extends JPanel
 				chatArea.setText(results);
 			}
 		});
+		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
+		
+		loadButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
+			}
+		});
 	}
 	
 	//Just returns JTextField
