@@ -60,6 +60,8 @@ public class CTECTwitter
 	 */
 	public void loadTweets(String twitterHandle) throws TwitterException
 	{
+		statuses.clear();
+		tweetTexts.clear();
 		Paging statusPage = new Paging(1,200);
 		int page = 1;
 		while (page <= 10)
@@ -184,15 +186,14 @@ public class CTECTwitter
 	{
 		String [] boringWords;
 		int wordCount = 0;
-		try
-		{
-			Scanner wordFile = new Scanner(new File("commonWords.txt"));
+		
+			Scanner wordFile = new Scanner(getClass().getResourceAsStream("commonWords.txt"));
 			while(wordFile.hasNext())
 			{
 				wordCount++;
 				wordFile.next();
 			}
-			wordFile.reset();
+			wordFile = new Scanner(getClass().getResourceAsStream("commonWords.txt"));
 			boringWords = new String[wordCount];
 			int boringWordCount = 0;
 			while(wordFile.hasNext())
@@ -201,13 +202,8 @@ public class CTECTwitter
 				boringWordCount++;
 			}
 			wordFile.close();
-		}
-		catch(FileNotFoundException e)
-		{
-			baseController.handleErrors(e.getMessage());
-			return new String[0];
-		}
-		return boringWords;
+			
+			return boringWords;
 	}
 }
 
