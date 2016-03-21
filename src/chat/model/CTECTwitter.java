@@ -5,8 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 
 import twitter4j.*;
+
 import java.io.*;
+
 import chat.controller.ChatController;
+import chat.view.ChatView;
 
 /**
  * @author Billy Konesavanh
@@ -19,6 +22,8 @@ public class CTECTwitter
 	private ArrayList<Status> statuses;
 	private ArrayList<String> tweetTexts;
 	private Twitter chatbotTwitter;
+	private ChatView myDisplay;
+	private Chatbot myBot;
 	private ChatController baseController;
 	
 	/*
@@ -29,7 +34,16 @@ public class CTECTwitter
 		statuses = new ArrayList<Status>();
 		tweetTexts = new ArrayList<String>();
 		chatbotTwitter = TwitterFactory.getSingleton();
+		myDisplay = new ChatView();
+		String userName = myDisplay.grabAnswer("What is your name?");
+		myBot = new Chatbot(userName);
 		this.baseController = baseController;
+	}
+	
+	private void shutDown()
+	{
+		myDisplay.showResponse("Goodbye, " + myBot.getUserName() + " it has been my pleasure to talk with you.");
+		System.exit(0);
 	}
 	
 	/**
@@ -46,6 +60,27 @@ public class CTECTwitter
 		{
 			baseController.handleErrors(error.getErrorMessage());
 		}
+	}
+	
+	public String analyze(String userName)
+	{
+		String userAnalysis = "The Twitter user " + userName + " has many tweets.  ";
+		try
+		{
+			chatbotTwitter.loadTweets(userName);
+		}
+		catch(TwitterException error)
+		{
+			handleErrors(error.getErrorMessage());
+		}
+		userAnalysis =+ chatbotTwitter.topResults();
+		
+		return userAnalysis;
+	}
+	
+	public void handleErrors(String errorMessage)
+	{
+		myDisplay.showResponse(errorMessage);
 	}
 	
 	public void topResults(ArrayList<String> wordList)
