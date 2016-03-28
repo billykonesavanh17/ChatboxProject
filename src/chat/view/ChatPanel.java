@@ -170,7 +170,8 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				String results = baseController.doInvestigation();
+				chatArea.setText(results);
 			}
 		});
 	}

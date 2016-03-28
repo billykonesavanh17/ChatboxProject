@@ -188,14 +188,14 @@ public class CTECTwitter
 	{
 		String results = "";
 		
-		Query query = new Query("");
+		Query query = new Query("Bernie");
 		query.setCount(100);
-		query.setGeoCode(new GeoLocation(40.5, -111.8), 5, Query.MILES);
+		query.setGeoCode(new GeoLocation(40.5, -111.8), 100, Query.MILES);
 		query.setSince("2016-1-1");
 		try
 		{
 			QueryResult result = chatbotTwitter.search(query);
-			results +="Count :  + result.getTweets().size() + \n";
+			results += "Count :  "  + result.getTweets().size() + "\n";
 			for(Status tweet : result.getTweets())
 			{
 				results += "@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n";

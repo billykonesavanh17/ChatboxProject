@@ -89,6 +89,13 @@ public class ChatController
 			
 			return userAnalysis;
 	}
+	
+	public String doInvestigation()
+	{
+		String twitterResults = "";
+		twitterResults += chatTwitter.sampleInvestigation();
+		return twitterResults;
+	}
 		
 	
 	public void handleErrors(String errorMessage)
