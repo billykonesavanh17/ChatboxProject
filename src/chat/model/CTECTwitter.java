@@ -195,10 +195,10 @@ public class CTECTwitter
 		try
 		{
 			QueryResult result = chatbotTwitter.search(query);
-			results.concat("Count : " + result.getTweets().size());
+			results +="Count :  + result.getTweets().size() + \n";
 			for(Status tweet : result.getTweets())
 			{
-				results.concat("@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n");
+				results += "@" + tweet.getUser().getName() + ": " + tweet.getText() + "\n";
 			}
 		}
 		catch(TwitterException error)
