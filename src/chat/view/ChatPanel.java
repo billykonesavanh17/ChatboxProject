@@ -3,10 +3,12 @@ package chat.view;
 import javax.swing.*;
 
 import chat.controller.ChatController;
+import chat.controller.IOController;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 public class ChatPanel extends JPanel
 {
@@ -162,7 +164,8 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				String file = IOController.saveFile(chatArea.getText());
+				promptLabel.setText(file);
 			}
 		});
 		
@@ -170,8 +173,8 @@ public class ChatPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				String results = baseController.doInvestigation();
-				chatArea.setText(results);
+				String loadedText = IOController.readTextFromFile(promptLabel.getText());
+				chatArea.setText(loadedText);
 			}
 		});
 	}
@@ -182,5 +185,10 @@ public class ChatPanel extends JPanel
 		return firstTextField;
 	}
 	
+	
+	public JButton getButton()
+	{
+		return testButton;
+	}
 
 }
