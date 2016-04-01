@@ -188,7 +188,7 @@ public class ChatPanel extends JPanel
 	
 	public JButton getButton()
 	{
-		return testButton;
+		return loadButton;
 	}
 
 }

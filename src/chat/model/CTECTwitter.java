@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import twitter4j.*;
-
 import java.io.*;
 
 import chat.controller.ChatController;
